@@ -17,7 +17,7 @@
             "@modules/*": ["src/modules/*"],
             "@services/*": ["src/services/*"],
             "@controllers/*": ["src/controllers/*"],
-            "@middleware/*": ["src/middleware/*"],
+            "@middlewares/*": ["src/middlewares/*"],
             "@validations/*": ["src/validations/*"],
             "@models/*": ["src/models/*"],
             "@helpers/*": ["src/helpers/*"],

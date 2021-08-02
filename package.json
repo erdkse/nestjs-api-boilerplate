@@ -2,6 +2,7 @@
     "name": "nestjs-api-boilerplate",
     "version": "0.0.1",
     "description": "",
+    "main": "src/main.ts",
     "author": "Erdi Köse <me@erdkse.com>",
     "private": true,
     "license": "MIT",
@@ -94,8 +95,8 @@
             "@services/(.*)": [
                 "<rootDir>/services/$1"
             ],
-            "@middleware/(.*)": [
-                "<rootDir>/middleware/$1"
+            "@middlewares/(.*)": [
+                "<rootDir>/middlewares/$1"
             ],
             "@validations/(.*)": [
                 "<rootDir>/validations/$1"
@@ -121,7 +122,7 @@
         "@controllers": "src/controllers",
         "@modules": "src/modules",
         "@services": "src/services",
-        "@middleware": "src/middleware",
+        "@middlewares": "src/middlewares",
         "@validations": "src/validations",
         "@models": "src/models",
         "@helpers": "src/helpers",
