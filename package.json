@@ -1,0 +1,132 @@
+{
+    "name": "nestjs-api-boilerplate",
+    "version": "0.0.1",
+    "description": "",
+    "author": "Erdi Köse <me@erdkse.com>",
+    "private": true,
+    "license": "MIT",
+    "scripts": {
+        "prebuild": "rimraf dist",
+        "build": "nest build",
+        "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+        "start": "nest start",
+        "start:dev": "nest start --watch",
+        "start:debug": "nest start --debug --watch",
+        "start:prod": "node dist/main",
+        "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:cov": "jest --coverage",
+        "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+        "test:e2e": "jest --config ./test/jest-e2e.json",
+        "release:patch": "standard-version --release-as patch",
+        "release:minor": "standard-version --release-as minor",
+        "release:major": "standard-version --release-as major"
+    },
+    "dependencies": {
+        "@nestjs/common": "^8.0.0",
+        "@nestjs/core": "^8.0.0",
+        "@nestjs/platform-express": "^8.0.0",
+        "module-alias": "^2.2.2",
+        "reflect-metadata": "^0.1.13",
+        "rimraf": "^3.0.2",
+        "rxjs": "^7.2.0"
+    },
+    "devDependencies": {
+        "@nestjs/cli": "^8.0.0",
+        "@nestjs/schematics": "^8.0.0",
+        "@nestjs/testing": "^8.0.0",
+        "@types/express": "^4.17.13",
+        "@types/jest": "^26.0.24",
+        "@types/node": "^16.0.0",
+        "@types/supertest": "^2.0.11",
+        "@typescript-eslint/eslint-plugin": "^4.28.2",
+        "@typescript-eslint/parser": "^4.28.2",
+        "eslint": "^7.30.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^3.4.0",
+        "husky": "^6.0.0",
+        "jest": "27.0.6",
+        "lint-staged": "^11.0.0",
+        "prettier": "^2.3.2",
+        "standard-version": "9.3.0",
+        "supertest": "^6.1.3",
+        "ts-jest": "^27.0.3",
+        "ts-loader": "^9.2.3",
+        "ts-node": "^10.0.0",
+        "tsconfig-paths": "^3.10.1",
+        "typescript": "^4.3.5"
+    },
+    "lint-staged": {
+        "**/*.{js,ts}": [
+            "npm run lint",
+            "prettier-eslint --write"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "json",
+            "ts"
+        ],
+        "rootDir": "src",
+        "testRegex": ".*\\.spec\\.ts$",
+        "transform": {
+            "^.+\\.(t|j)s$": "ts-jest"
+        },
+        "collectCoverageFrom": [
+            "**/*.(t|j)s"
+        ],
+        "coverageDirectory": "../coverage",
+        "testEnvironment": "node",
+        "moduleNameMapper": {
+            "@controllers/(.*)": [
+                "<rootDir>/controllers/$1"
+            ],
+            "@modules/(.*)": [
+                "<rootDir>/modules/$1"
+            ],
+            "@services/(.*)": [
+                "<rootDir>/services/$1"
+            ],
+            "@middleware/(.*)": [
+                "<rootDir>/middleware/$1"
+            ],
+            "@validations/(.*)": [
+                "<rootDir>/validations/$1"
+            ],
+            "@models/(.*)": [
+                "<rootDir>/models/$1"
+            ],
+            "@helpers/(.*)": [
+                "<rootDir>/helpers/$1"
+            ],
+            "@interfaces/(.*)": [
+                "<rootDir>/interfaces/$1"
+            ],
+            "@enums/(.*)": [
+                "<rootDir>/enums/$1"
+            ],
+            "@/(.*)": [
+                "<rootDir>/$1"
+            ]
+        }
+    },
+    "_moduleAliases": {
+        "@controllers": "src/controllers",
+        "@modules": "src/modules",
+        "@services": "src/services",
+        "@middleware": "src/middleware",
+        "@validations": "src/validations",
+        "@models": "src/models",
+        "@helpers": "src/helpers",
+        "@interfaces": "src/interfaces",
+        "@enums": "src/enums",
+        "@": "src"
+    }
+}
